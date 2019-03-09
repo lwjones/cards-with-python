@@ -12,4 +12,7 @@ class Card:
         self.value = value
 
     def __repr__(self):
+        return self.toString()
+
+    def toString(self):
         return "{value} of {suit}".format(value=str(self.value), suit=self.suit.title())

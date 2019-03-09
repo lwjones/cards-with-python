@@ -17,4 +17,4 @@ for value in "A23456789TJQK":
 
 print(dealerDeck)
 dealerDeck.shuffle()
-print(dealerDeck)
+print(dealerDeck.toString())

@@ -13,15 +13,17 @@ class Deck:
 
     # remove (pop) the top card
     def takeCard(self):
-        if deck.length == 0:
+        if self.deck.length == 0:
             return False
-        if deck.length - 1 == 0:
+        if self.deck.length - 1 == 0:
             self.empty = False
         return self.deck.pop()
 
     # shuffle the deck
     def shuffle(self):
-        shuffle(self.deck)
+        cards = self.deck
+        shuffle(cards)
+        self.deck = cards
 
     # clear and return contents of deck
     def clearDeck(self):
@@ -37,4 +39,10 @@ class Deck:
 
     # to string contents of array
     def toString(self):
-        output = ''
+        output = ""
+        lastIndex = len(self.deck)
+        for idx, card in enumerate(self.deck):
+            output += card.toString()
+            if idx != lastIndex - 1:
+                output += ', '
+        return output
