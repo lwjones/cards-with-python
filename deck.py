@@ -3,45 +3,45 @@ from random import shuffle
 
 class Deck:
     def __init__(self):
-        self.deck = []
+        self.cards = []
         self.empty = True
 
     # add (append) a card 
     def addCard(self, card):
-        self.deck.append(card)
+        self.cards.append(card)
         self.empty = False
 
     # remove (pop) the top card
     def takeCard(self):
-        if self.deck.length == 0:
+        if len(self.cards) == 0:
             return False
-        if self.deck.length - 1 == 0:
+        if len(self.cards) - 1 == 0:
             self.empty = False
-        return self.deck.pop()
+        return self.cards.pop()
 
     # shuffle the deck
     def shuffle(self):
-        cards = self.deck
+        cards = self.cards
         shuffle(cards)
-        self.deck = cards
+        self.cards = cards
 
     # clear and return contents of deck
-    def clearDeck(self):
-        cards = self.deck
-        self.deck = []
+    def clearCards(self):
+        cards = self.cards
+        self.cards = []
         self.empty = True
         return cards
 
     # set contents of a deck from another deck
     def moveContentsTo(self, deckToTakeFrom):
-        cards = deckToTakeFrom.clearContents()
-        self.deck = cards
+        cards = deckToTakeFrom.clearDeck()
+        self.cards = cards
 
     # to string contents of array
     def toString(self):
         output = ""
-        lastIndex = len(self.deck)
-        for idx, card in enumerate(self.deck):
+        lastIndex = len(self.cards)
+        for idx, card in enumerate(self.cards):
             output += card.toString()
             if idx != lastIndex - 1:
                 output += ', '
